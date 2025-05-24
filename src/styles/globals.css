@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sidebar-logo {
+  margin-block: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 10rem;
+  transition-duration: 0.2s;
+}
+.sidebar-logo:hover {
+  background: #2b3640;
+}
+
+@media only screen and (max-width: 1180px) {
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+  }
+  .sidebar-logo svg {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .hover-effect {
+    @apply duration-300 hover:bg-hovgrey;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .col {
+    @apply flex flex-col;
+  }
+  .text-white {
+    color: white;
+  }
+  .button-effect {
+    padding: 0.8rem;
+    @apply rounded-full;
+    @apply hover:bg-hovgrey focus:bg-focusgrey focus-visible:bg-focusgrey;
+  }
+  .translate-center {
+    transform: translate(-50%, -50%);
+  }
+}
