@@ -1,6 +1,6 @@
 "use client";
 
-import { CustomButtonProps } from "@/types/types";
+import type { CustomButtonProps } from "@/types/types";
 
 export default function CustomButton({
   title,
