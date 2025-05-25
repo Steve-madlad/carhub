@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const cars = [
   {
@@ -44,7 +45,7 @@ export default function ItemGrid() {
           className="relative cursor-pointer overflow-hidden duration-300 hover:shadow-lg xl:min-h-[300px] xl:min-w-[270px]"
         >
           <CardHeader className="h-full p-0">
-            <img
+            <Image
               src={
                 (index + 1) % 2 === 0
                   ? "https://picsum.photos/id/133/400/400.webp"
