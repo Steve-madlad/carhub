@@ -1,3 +1,9 @@
+import { Hero } from "@/components";
+
 export default function Home() {
-  return <div className="flex justify-center">home</div>;
+  return (
+    <main className="overflow-hidden">
+      <Hero />
+    </main>
+  );
 }

@@ -1,19 +1,23 @@
+import { Footer, Navbar } from "@/components/index";
 import "@/styles/globals.css";
-import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Twitter",
-  description: "Twitter clone",
-  icons: [{ rel: "icon", url: "/icons8-twitter-96.png" }],
+  title: "Car Hub",
+  description: "Discover your dream car today!",
+  icons: [{ rel: "icon", url: "/car-svgrepo-com (2).svg" }],
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="min-h-screen bg-xbgblue">{children}</body>
+    <html lang="en">
+      <body className="realtive">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

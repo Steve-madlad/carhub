@@ -1,35 +1,38 @@
-import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import type { Config } from "tailwindcss";
 
-export default {
-  content: ["./src/**/*.tsx", "./src/**/*.ts", "./src/**/*.html"],
+const config: Config = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  mode: "jit",
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-      },
-      translate: {
-        "-1/2": "-50%", // Adds a shorthand for -50% on both axes
+        inter: ["Inter", "sans-serif"],
       },
       colors: {
-        xbgblue: "#15202b",
-        twitterblue: "#1a8cd8",
-        hovgrey: "#2b3640",
-        focusgrey: "#35434f",
+        "black-100": "#2B2C35",
+        "primary-blue": {
+          DEFAULT: "#2B59FF",
+          100: "#F5F8FF",
+        },
+        "secondary-orange": "#f79761",
+        "light-white": {
+          DEFAULT: "rgba(59,60,152,0.03)",
+          100: "rgba(59,60,152,0.02)",
+        },
+        grey: "#747A88",
       },
-    },
-    screens: {
-      xsm: "450px",
-      xs: "470px",
-      sm: "640px",
-      md: "768px",
-      md2: "870px",
-      md3: "800px",
-      lg: "1024px",
-      xlg: "1180px",
-      xl: "1280px",
-      "2xl": "1536px",
+      backgroundImage: {
+        pattern: "url('/pattern.png')",
+        "hero-bg": "url('/hero-bg.png')",
+      },
     },
   },
   plugins: [],
-} satisfies Config;
+};
+
+export default config;
