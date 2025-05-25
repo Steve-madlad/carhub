@@ -1,6 +1,6 @@
-import { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type { MouseEventHandler } from "react";
-import { IconType } from "react-icons/lib";
+import type { IconType } from "react-icons/lib";
 
 export interface CustomButtonProps {
   title: string;
