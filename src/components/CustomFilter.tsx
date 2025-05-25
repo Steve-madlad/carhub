@@ -8,10 +8,12 @@ export default function CustomFilter({
   placeholder,
   autocompletePlaceholder,
   options,
+  className,
 }: {
   placeholder: string;
   autocompletePlaceholder: string;
   options: string[];
+  className?: string;
 }) {
   return (
     <AutoComplete
@@ -19,6 +21,7 @@ export default function CustomFilter({
       autocompletePlaceholder={autocompletePlaceholder}
       placeholder={placeholder}
       options={options}
+      triggerClassName={className}
     />
   );
 }

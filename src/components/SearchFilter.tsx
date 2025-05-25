@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AutoComplete from "./AutoComplete";
 import { Button } from "./ui/button";
 import { FaSearch } from "react-icons/fa";
@@ -9,6 +9,25 @@ import { manufacturers } from "@/constants/constants";
 
 export default function SearchBar() {
   const [manufacturer, setManufacturer] = useState("");
+  const autocompleteRef = useRef<HTMLDivElement>(null);
+  const [popoverWidth, setPopoverWidth] = useState<string>("w-[384px]");
+
+  useEffect(() => {
+    function updatePopoverWidth() {
+      if (autocompleteRef.current) {
+        const width = autocompleteRef.current.offsetWidth;
+        setPopoverWidth(`!w-[${width}px]`);
+      }
+    }
+
+    updatePopoverWidth(); // Initial calculation
+
+    window.addEventListener("resize", updatePopoverWidth);
+
+    return () => {
+      window.removeEventListener("resize", updatePopoverWidth);
+    };
+  }, []);
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,15 +38,18 @@ export default function SearchBar() {
     setManufacturer(value);
   };
 
+  console.log("popover", popoverWidth);
+
   return (
-    <form onSubmit={handleSearch} className="searchbar">
-      <div className="searchbar__item">
+    <form onSubmit={handleSearch} className="searchbar pr-[50px] sm:p-0">
+      <div className="searchbar__item" ref={autocompleteRef}>
         <AutoComplete
           autocompletePlaceholder="Search manufacturer"
           placeholder="Select Manufacturer"
           iconOnSelect={SiVolkswagen}
           onOptionSelect={handleSelect}
-          triggerClassName="w-full rounded-e-none rounded-s-md border-r-0 shadow-none hover:bg-transparent"
+          triggerClassName="w-full sm:rounded-e-none sm:rounded-s-md sm:border-r-0 !bg-transparent shadow-none"
+          popoverClassName={popoverWidth}
           options={manufacturers}
         />
       </div>
@@ -36,14 +58,15 @@ export default function SearchBar() {
         <AutoComplete
           autocompletePlaceholder="Search manufacturer"
           placeholder="Select Manufacturer"
-          triggerClassName="w-full rounded-s-none rounded-e-md border-s-0 shadow-none hover:bg-transparent"
+          triggerClassName="w-full sm:rounded-s-none sm:rounded-e-md sm:border-s-0 bg-transparent shadow-none"
+          popoverClassName={popoverWidth}
           options={manufacturers}
         />
       </div>
 
       <Button
         type="submit"
-        className="absolute right-0 size-fit h-full rounded-e-md rounded-s-none border border-l-0 bg-white text-black shadow-none hover:border-primary-blue hover:bg-primary-blue hover:text-white"
+        className="absolute right-0 size-fit h-full rounded-md border bg-white text-black shadow-none hover:border-primary-blue hover:bg-primary-blue hover:text-white sm:rounded-e-md sm:rounded-s-none sm:border-l-0"
       >
         <FaSearch />
       </Button>

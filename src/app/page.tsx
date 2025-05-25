@@ -21,11 +21,13 @@ export default function Home() {
               autocompletePlaceholder="Search Fuel type"
               placeholder="Fuel"
               options={fuels.map((fuelType) => fuelType.value)}
+              className="max-sm:w-full"
             />
             <CustomFilter
               autocompletePlaceholder="Search By Year"
               placeholder="Year"
               options={yearsOfProduction.map((fuelType) => fuelType.value)}
+              className="max-sm:w-full"
             />
           </div>
         </div>

@@ -25,6 +25,7 @@ export default function AutoComplete({
   autocompletePlaceholder,
   triggerClassName,
   onOptionSelect,
+  popoverClassName,
   iconOnSelect: IconOnSelect,
   defaultIcon: DefaultIcon,
   options,
@@ -39,7 +40,7 @@ export default function AutoComplete({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={`w-[200px] justify-start !bg-transparent outline-none ${!value && "text-muted-foreground"} ${triggerClassName}`}
+          className={`w-[200px] justify-start outline-none ${!value && "text-muted-foreground"} ${triggerClassName}`}
         >
           {value && IconOnSelect ? (
             <IconOnSelect />
@@ -52,7 +53,9 @@ export default function AutoComplete({
           {value ? options.find((option) => option === value) : placeholder}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent
+        className={`w-[var(--radix-popover-trigger-width)] p-0 ${popoverClassName}`}
+      >
         <Command>
           <CommandInput placeholder={autocompletePlaceholder} className="h-9" />
           <CommandList>

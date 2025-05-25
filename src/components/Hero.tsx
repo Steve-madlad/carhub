@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <div className="hero">
       <div className="padding-x flex-1 pt-36">
-        <h1 className="hero__title">
+        <h1 className="hero__title leading-[3.5rem] sm:leading-[5rem] lg:leading-[6rem]">
           Find, book, or rent a car - quick and easy!
         </h1>
 
