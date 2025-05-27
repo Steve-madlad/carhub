@@ -1,8 +1,27 @@
-import { Hero, CustomFilter, SearchBar } from "@/components";
+import { Hero, CustomFilter, SearchBar, CarCard } from "@/components";
 import ItemGrid from "@/components/ItemGrid";
 import { fuels, yearsOfProduction } from "@/constants/constants";
 
-export default function Home() {
+export default async function Home() {
+  // const cars = await getCarDetails("toyota");
+
+  const cars = [
+    {
+      city_mpg: "this field is for premium subscribers only",
+      class: "compact car",
+      combination_mpg: "this field is for premium subscribers only",
+      cylinders: 4,
+      displacement: 1.6,
+      drive: "fwd",
+      fuel_type: "gas",
+      highway_mpg: "this field is for premium subscribers only",
+      make: "toyota",
+      model: "corolla",
+      transmission: "a",
+      year: 1993,
+    },
+  ];
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -31,6 +50,18 @@ export default function Home() {
             />
           </div>
         </div>
+
+        {cars && (
+          <section className="mb-10">
+            <div className="home__cars-wrapper">
+              {cars.map(
+                (car: Record<string, string | number>, index: number) => (
+                  <CarCard car={car} key={index} />
+                ),
+              )}
+            </div>
+          </section>
+        )}
 
         <ItemGrid />
       </div>

@@ -6,7 +6,7 @@ import { type Metadata } from "next";
 export const metadata: Metadata = {
   title: "Car Hub",
   description: "Discover your dream car today!",
-  icons: [{ rel: "icon", url: "/car-svgrepo-com (2).svg" }],
+  icons: [{ rel: "icon", url: "/car-svgrepo-com(2).svg" }],
 };
 
 export default function RootLayout({

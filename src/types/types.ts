@@ -13,7 +13,6 @@ export interface AutoCompleteProps {
   placeholder: string;
   autocompletePlaceholder: string;
   options: string[];
-  popoverClassName?: string;
   triggerClassName?: string;
   onOptionSelect?: (value: string) => void;
   iconOnSelect?: IconProp;

@@ -25,7 +25,6 @@ export default function AutoComplete({
   autocompletePlaceholder,
   triggerClassName,
   onOptionSelect,
-  popoverClassName,
   iconOnSelect: IconOnSelect,
   defaultIcon: DefaultIcon,
   options,
@@ -53,9 +52,7 @@ export default function AutoComplete({
           {value ? options.find((option) => option === value) : placeholder}
         </Button>
       </PopoverTrigger>
-      <PopoverContent
-        className={`w-[var(--radix-popover-trigger-width)] p-0 ${popoverClassName}`}
-      >
+      <PopoverContent className={`w-[var(--radix-popover-trigger-width)] p-0`}>
         <Command>
           <CommandInput placeholder={autocompletePlaceholder} className="h-9" />
           <CommandList>
