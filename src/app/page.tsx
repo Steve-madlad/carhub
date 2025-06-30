@@ -1,26 +1,33 @@
 import { Hero, CustomFilter, SearchBar, CarCard } from "@/components";
 import ItemGrid from "@/components/ItemGrid";
 import { fuels, yearsOfProduction } from "@/constants/constants";
+import { getCarDetails } from "data/utils";
+import type { Car } from "@/types/types";
 
-export default async function Home() {
-  // const cars = await getCarDetails("toyota");
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: { manufacturer?: string };
+}) {
+  const manufacturer = searchParams?.manufacturer ?? "toyota";
+  const cars: Car[] = await getCarDetails(manufacturer);
 
-  const cars = [
-    {
-      city_mpg: "this field is for premium subscribers only",
-      class: "compact car",
-      combination_mpg: "this field is for premium subscribers only",
-      cylinders: 4,
-      displacement: 1.6,
-      drive: "fwd",
-      fuel_type: "gas",
-      highway_mpg: "this field is for premium subscribers only",
-      make: "toyota",
-      model: "corolla",
-      transmission: "a",
-      year: 1993,
-    },
-  ];
+  // const cars = [
+  //   {
+  //     city_mpg: "this field is for premium subscribers only",
+  //     class: "compact car",
+  //     combination_mpg: "this field is for premium subscribers only",
+  //     cylinders: 4,
+  //     displacement: 1.6,
+  //     drive: "fwd",
+  //     fuel_type: "gas",
+  //     highway_mpg: "this field is for premium subscribers only",
+  //     make: "toyota",
+  //     model: "corolla",
+  //     transmission: "a",
+  //     year: 1993,
+  //   },
+  // ];getCarDetails
 
   return (
     <main className="overflow-hidden">
@@ -54,11 +61,9 @@ export default async function Home() {
         {cars && (
           <section className="mb-10">
             <div className="home__cars-wrapper">
-              {cars.map(
-                (car: Record<string, string | number>, index: number) => (
-                  <CarCard car={car} key={index} />
-                ),
-              )}
+              {cars.map((car: Car, index: number) => (
+                <CarCard car={car} key={index} />
+              ))}
             </div>
           </section>
         )}

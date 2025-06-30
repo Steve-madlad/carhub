@@ -39,7 +39,7 @@ export function CardModal() {
               <Image
                 fill
                 alt="car sides"
-                className="m-auto !size-3/4"
+                className="m-auto !h-4/6 !w-3/4"
                 src="/hero.png"
               />
             </div>
@@ -47,7 +47,7 @@ export function CardModal() {
               <Image
                 fill
                 alt="car sides"
-                className="m-auto !size-3/4"
+                className="m-auto !h-4/6 !w-3/4"
                 src="/hero.png"
               />
             </div>
@@ -55,7 +55,7 @@ export function CardModal() {
               <Image
                 fill
                 alt="car sides"
-                className="m-auto !size-3/4"
+                className="m-auto !h-4/6 !w-3/4"
                 src="/hero.png"
               />
             </div>

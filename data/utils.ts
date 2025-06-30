@@ -1,4 +1,5 @@
-// import { CarProps, FilterProps } from "@/types/types";
+import { cars } from "@/constants/constants";
+import type { Car, CarKey } from "@/types/types";
 
 export async function getCarDetails(carBrand: string) {
   if (!carBrand || !process.env.NEXT_PUBLIC_CAR_NINJA_API_KEY) {
@@ -17,7 +18,8 @@ export async function getCarDetails(carBrand: string) {
     },
   );
 
-  return await response.json();
+  const data = await response.json();
+  return data as Car[];
 }
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
@@ -65,17 +67,9 @@ export const deleteSearchParams = (type: string) => {
   return newPathname;
 };
 
-// export const generateCarImageUrl = (car: CarProps, angle?: string) => {
-//   const url = new URL("https://cdn.imagin.studio/getimage");
-//   const { make, model, year } = car;
+export const getCarImage = (car: CarKey) => {
+  const formatted = car.toLowerCase().replace(" ", "") as CarKey;
+  const image = cars[formatted];
 
-//   url.searchParams.append('customer', process.env.NEXT_PUBLIC_IMAGIN_API_KEY || '');
-//   url.searchParams.append('make', make);
-//   url.searchParams.append('modelFamily', model.split(" ")[0]);
-//   url.searchParams.append('zoomType', 'fullscreen');
-//   url.searchParams.append('modelYear', `${year}`);
-//   // url.searchParams.append('zoomLevel', zoomLevel);
-//   url.searchParams.append('angle', `${angle}`);
-
-//   return `${url}`;
-// }
+  return image;
+};

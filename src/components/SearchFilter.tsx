@@ -6,14 +6,17 @@ import { Button } from "./ui/button";
 import { FaSearch } from "react-icons/fa";
 import { SiVolkswagen } from "react-icons/si";
 import { manufacturers } from "@/constants/constants";
-import { getCarDetails } from "data/utils";
+import { useRouter } from "next/navigation";
 
 export default function SearchBar() {
   const [manufacturer, setManufacturer] = useState("");
+  const router = useRouter();
 
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await getCarDetails(manufacturer).catch((err) => console.log(err));
+    if (manufacturer) {
+      router.push(`/?manufacturer=${encodeURIComponent(manufacturer)}`);
+    }
   };
 
   const handleSelect = (value: string): void => {
@@ -37,7 +40,7 @@ export default function SearchBar() {
         <AutoComplete
           autocompletePlaceholder="Search manufacturer"
           placeholder="Select Manufacturer"
-          triggerClassName="w-full sm:rounded-s-none sm:rounded-e-md sm:border-s-0 bg-transparent shadow-none"
+          triggerClassName="w-full sm:rounded-s-none sm:rounded-e-md sm:border-s-0 !bg-transparent shadow-none"
           options={manufacturers}
         />
       </div>
