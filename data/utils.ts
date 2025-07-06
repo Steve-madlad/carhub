@@ -2,12 +2,12 @@ import { cars } from "@/constants/constants";
 import type { Car, CarKey } from "@/types/types";
 
 export async function getCarDetails(carBrand: string) {
-  if (!carBrand || !process.env.NEXT_PUBLIC_CAR_NINJA_API_KEY) {
+  if (!carBrand || !process.env.CAR_NINJA_API_KEY) {
     throw new Error("Car brand or API key is missing.");
   }
 
   const headers = {
-    "X-Api-Key": String(process.env.NEXT_PUBLIC_CAR_NINJA_API_KEY),
+    "X-Api-Key": String(process.env.CAR_NINJA_API_KEY),
   };
 
   const response = await fetch(
