@@ -3,7 +3,7 @@ import type { Car, CarKey } from "@/types/types";
 
 export async function getCarDetails(carBrand: string) {
   if (!carBrand || !process.env.NEXT_PUBLIC_CAR_NINJA_API_KEY) {
-    throw new Error("Car brand or API key is missing");
+    throw new Error("Car brand or API key is missing.");
   }
 
   const headers = {
