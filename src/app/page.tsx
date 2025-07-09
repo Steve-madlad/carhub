@@ -1,6 +1,7 @@
 import { Hero, CustomFilter, SearchBar } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants/constants";
 import CarGrid from "@/components/CarGrid";
+import { Suspense } from "react";
 
 export default async function Home() {
   // const cars = [
@@ -59,7 +60,9 @@ export default async function Home() {
           </section>
         )} */}
 
-        <CarGrid />
+        <Suspense>
+          <CarGrid />
+        </Suspense>
       </div>
     </main>
   );
