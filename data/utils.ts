@@ -16,6 +16,7 @@ export async function getCarDetails(carBrand: string) {
       method: "GET",
       headers,
     },
+    k,
   );
 
   const data = await response.json();

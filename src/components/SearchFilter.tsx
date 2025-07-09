@@ -15,7 +15,9 @@ export default function SearchBar() {
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (manufacturer) {
-      router.push(`/?manufacturer=${encodeURIComponent(manufacturer)}`);
+      router.push(`/?manufacturer=${encodeURIComponent(manufacturer)}`, {
+        scroll: false,
+      });
     }
   };
 

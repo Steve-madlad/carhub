@@ -1,17 +1,8 @@
-import { Hero, CustomFilter, SearchBar, CarCard } from "@/components";
-import ItemGrid from "@/components/ItemGrid";
+import { Hero, CustomFilter, SearchBar } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants/constants";
-import { getCarDetails } from "data/utils";
-import type { Car } from "@/types/types";
+import CarGrid from "@/components/CarGrid";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: { manufacturer?: string };
-}) {
-  const manufacturer = searchParams?.manufacturer ?? "toyota";
-  const cars: Car[] = await getCarDetails(manufacturer);
-
+export default async function Home() {
   // const cars = [
   //   {
   //     city_mpg: "this field is for premium subscribers only",
@@ -58,7 +49,7 @@ export default async function Home({
           </div>
         </div>
 
-        {cars && (
+        {/* {cars && (
           <section className="mb-10">
             <div className="home__cars-wrapper">
               {cars.map((car: Car, index: number) => (
@@ -66,9 +57,9 @@ export default async function Home({
               ))}
             </div>
           </section>
-        )}
+        )} */}
 
-        <ItemGrid />
+        <CarGrid />
       </div>
     </main>
   );
