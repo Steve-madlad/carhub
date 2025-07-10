@@ -1,15 +1,12 @@
 import { Card } from "@/components/ui/card";
-import { calculateCarRent, getCarImage, getRandomCityMpg } from "data/utils";
+import { getCarImage } from "data/utils";
 import Image from "next/image";
 import { TbSteeringWheel } from "react-icons/tb";
 import { CardModal } from "./";
 import type { Car, CarKey } from "@/types/types";
 
 export default function CarCard({ car }: { car: Car }) {
-  const { year, make, model, transmission, fuel_type, drive } = car;
-  const city_mpg = getRandomCityMpg();
-  const yearNum = typeof year === "number" ? year : Number(year) || 2020;
-  const carRent = calculateCarRent(city_mpg, yearNum);
+  const { make, model, transmission, fuel_type, drive } = car;
 
   return (
     <Card className="car-card group">
@@ -21,7 +18,7 @@ export default function CarCard({ car }: { car: Car }) {
 
       <p className="mt-6 flex text-[32px] font-extrabold leading-8">
         <span className="font-semi-bold self-start text-sm">$</span>
-        {carRent}
+        <p>{(Math.random() * (65 - 34) + 34).toFixed(0)}</p>
         <span className="self-end text-sm font-medium">/day</span>
       </p>
 
