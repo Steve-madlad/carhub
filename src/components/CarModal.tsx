@@ -2,18 +2,15 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  // DialogDescription,
-  // DialogFooter,
-  // DialogHeader,
-  // DialogTitle,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
+import type { Car, CarKey } from "@/types/types";
+import { getCarImage, toPascalCase } from "data/utils";
 
-export function CardModal() {
+export function CardModal({ details }: { details: Car }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -25,12 +22,17 @@ export function CardModal() {
           <MoveRight className="absolute right-8 duration-300 group-hover:animate-bounce-x" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="p-4 sm:max-w-2xl">
+      <DialogContent className="max-h-[90vh] overflow-y-auto p-4 sm:max-w-2xl">
+        <DialogTitle>Car Details</DialogTitle>
         <div className="space-y-6">
           <div className="flex-center relative h-48 overflow-hidden rounded-md">
             <Image fill src="/pattern.png" alt="pattern" />
             <div className="relative aspect-video w-48 sm:w-64">
-              <Image fill src="/hero.png" alt="hero" />
+              <Image
+                fill
+                src={getCarImage(details.make as CarKey)}
+                alt="hero"
+              />
             </div>
           </div>
 
@@ -40,7 +42,7 @@ export function CardModal() {
                 fill
                 alt="car sides"
                 className="m-auto !h-4/6 !w-3/4"
-                src="/hero.png"
+                src={getCarImage(details.make as CarKey)}
               />
             </div>
             <div className="relative flex h-24 flex-1 rounded-md bg-accent sm:h-32">
@@ -48,7 +50,7 @@ export function CardModal() {
                 fill
                 alt="car sides"
                 className="m-auto !h-4/6 !w-3/4"
-                src="/hero.png"
+                src={getCarImage(details.make as CarKey)}
               />
             </div>
             <div className="relative flex h-24 flex-1 rounded-md bg-accent sm:h-32">
@@ -56,37 +58,39 @@ export function CardModal() {
                 fill
                 alt="car sides"
                 className="m-auto !h-4/6 !w-3/4"
-                src="/hero.png"
+                src={getCarImage(details.make as CarKey)}
               />
             </div>
           </div>
 
           <div>
-            <p className="mb-4 text-lg font-bold">Toyota Fortuner</p>
+            <p className="mb-4 text-lg font-bold">
+              {toPascalCase(details.make)} {toPascalCase(details.model)}
+            </p>
             <div className="space-y-4">
               <div className="flex-between">
                 <p>Year</p>
-                <p>2022</p>
+                <p>{details.year}</p>
               </div>
               <div className="flex-between">
-                <p>Engine</p>
-                <p>2.8L Diesel</p>
+                <p>Cylinders</p>
+                <p>{details.cylinders}</p>
               </div>
               <div className="flex-between">
                 <p>Transmission</p>
-                <p>Automatic</p>
+                <p>{details.transmission === "a" ? "Automatic" : "Manual"}</p>
               </div>
               <div className="flex-between">
                 <p>Drive</p>
-                <p>4WD</p>
+                <p>{details.drive.toUpperCase()}</p>
               </div>
               <div className="flex-between">
                 <p>Fuel Type</p>
-                <p>Diesel</p>
+                <p>{details.fuel_type.toUpperCase()}</p>
               </div>
               <div className="flex-between">
-                <p>Seats</p>
-                <p>7</p>
+                <p>Displacement</p>
+                <p>{details.displacement}</p>
               </div>
               <div className="flex-between">
                 <p>City MPG</p>
@@ -98,11 +102,11 @@ export function CardModal() {
               </div>
               <div className="flex-between">
                 <p>Horsepower</p>
-                <p>201 hp</p>
+                <p>{(Math.random() * (342 - 53) + 53).toFixed(0)} hp</p>
               </div>
               <div className="flex-between">
                 <p>Torque</p>
-                <p>500 Nm</p>
+                <p>{(Math.random() * (500 - 250) + 250).toFixed(0)} Nm</p>
               </div>
             </div>
           </div>

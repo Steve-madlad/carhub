@@ -4,23 +4,6 @@ import CarGrid from "@/components/CarGrid";
 import { Suspense } from "react";
 
 export default async function Home() {
-  // const cars = [
-  //   {
-  //     city_mpg: "this field is for premium subscribers only",
-  //     class: "compact car",
-  //     combination_mpg: "this field is for premium subscribers only",
-  //     cylinders: 4,
-  //     displacement: 1.6,
-  //     drive: "fwd",
-  //     fuel_type: "gas",
-  //     highway_mpg: "this field is for premium subscribers only",
-  //     make: "toyota",
-  //     model: "corolla",
-  //     transmission: "a",
-  //     year: 1993,
-  //   },
-  // ];getCarDetails
-
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -49,16 +32,6 @@ export default async function Home() {
             />
           </div>
         </div>
-
-        {/* {cars && (
-          <section className="mb-10">
-            <div className="home__cars-wrapper">
-              {cars.map((car: Car, index: number) => (
-                <CarCard car={car} key={index} />
-              ))}
-            </div>
-          </section>
-        )} */}
 
         <Suspense>
           <CarGrid />

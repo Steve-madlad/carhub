@@ -73,3 +73,7 @@ export const getCarImage = (car: CarKey) => {
 
   return image;
 };
+
+export const toPascalCase = (text: string) => {
+  return text.replace(/\b\w/g, (char) => char.toUpperCase());
+};

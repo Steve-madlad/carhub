@@ -31,7 +31,7 @@ export interface Car {
   highway_mpg: string;
   make: string;
   model: string;
-  transmission: string;
+  transmission: "m" | "a";
   year: number;
 }
 

@@ -78,7 +78,7 @@ export default function CarCard({ car }: { car: Car }) {
         </div>
 
         <div className="car-card__btn-container">
-          <CardModal />
+          <CardModal details={car} />
         </div>
       </div>
     </Card>
