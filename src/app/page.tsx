@@ -25,20 +25,22 @@ export default async function Home() {
           <SearchBar />
 
           <div className="home__filter-container">
-            <CustomFilter
-              autocompletePlaceholder="Search Fuel type"
-              placeholder="Fuel"
-              query="fuel_type"
-              options={fuels}
-              className="max-sm:w-full"
-            />
-            <CustomFilter
-              autocompletePlaceholder="Search By Year"
-              placeholder="Year"
-              query="year"
-              options={yearsOfProduction}
-              className="max-sm:w-full"
-            />
+            <Suspense>
+              <CustomFilter
+                autocompletePlaceholder="Search Fuel type"
+                placeholder="Fuel"
+                query="fuel_type"
+                options={fuels}
+                className="max-sm:w-full"
+              />
+              <CustomFilter
+                autocompletePlaceholder="Search By Year"
+                placeholder="Year"
+                query="year"
+                options={yearsOfProduction}
+                className="max-sm:w-full"
+              />
+            </Suspense>
           </div>
         </div>
 
