@@ -27,7 +27,7 @@ export function CardModal({ details }: { details: Car }) {
         <div className="space-y-6">
           <div className="flex-center relative h-48 overflow-hidden rounded-md">
             <Image fill src="/pattern.png" alt="pattern" />
-            <div className="relative aspect-video w-48 sm:w-64">
+            <div className="relative aspect-[16/10] w-48 sm:w-64">
               <Image
                 fill
                 src={getCarImage(details.make as CarKey)}

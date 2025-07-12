@@ -24,7 +24,7 @@ export default function CarGrid() {
   }, [manufacturer]);
 
   return (
-    <section>
+    <section id="car-grid">
       <div className="home__cars-wrapper">
         {isLoading
           ? Array.from({ length: 8 }, (_, index) => (

@@ -2,12 +2,9 @@
 
 import Image from "next/image";
 import CustomButton from "./CustomButton";
+import Link from "next/link";
 
 export default function Hero() {
-  const handleClick = (): void => {
-    console.log("click");
-  };
-
   return (
     <div className="hero">
       <div className="padding-x flex-1 pt-36">
@@ -21,10 +18,12 @@ export default function Hero() {
         </p>
 
         <CustomButton
-          title="Explore Cars"
-          containerStyles="bg-primary-blue text-white rounded-full mt-10"
-          handleClick={handleClick}
-        />
+          variant={"link"}
+          asChild
+          className="mt-10 w-fit rounded-full border-2 border-primary-blue bg-primary-blue text-white hover:bg-white hover:text-primary-blue focus:bg-white focus:text-primary-blue"
+        >
+          <Link href={"#catalogue"}>Explore Cars</Link>
+        </CustomButton>
       </div>
 
       <div className="hero__image-container">

@@ -33,6 +33,7 @@ const config: Config = {
         "black-100": "#2B2C35",
         "primary-blue": {
           "100": "#F5F8FF",
+          500: "#2c5aff",
           DEFAULT: "#2B59FF",
         },
         "secondary-orange": "#f79761",

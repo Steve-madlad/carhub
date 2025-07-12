@@ -1,14 +1,6 @@
 import type { cars } from "@/constants/constants";
 import type { LucideIcon } from "lucide-react";
-import type { MouseEventHandler } from "react";
 import type { IconType } from "react-icons/lib";
-
-export interface CustomButtonProps {
-  title: string;
-  containerStyles: string;
-  btnType?: "button" | "submit";
-  handleClick?: MouseEventHandler<HTMLButtonElement>;
-}
 
 export interface AutoCompleteProps {
   placeholder: string;

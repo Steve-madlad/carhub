@@ -1,21 +1,17 @@
 "use client";
 
-import type { CustomButtonProps } from "@/types/types";
+import { Button, ButtonProps } from "./ui/button";
 
 export default function CustomButton({
-  title,
-  containerStyles,
-  handleClick,
-  btnType,
-}: CustomButtonProps) {
+  className,
+  variant,
+  size,
+  asChild = false,
+  ...props
+}: ButtonProps) {
   return (
-    <button
-      disabled={false}
-      type={btnType ?? "button"}
-      className={`custom-btn ${containerStyles}`}
-      onClick={handleClick}
-    >
-      <span className="flex-1">{title}</span>
-    </button>
+    <Button asChild={asChild} className={`custom-btn ${className}`} {...props}>
+      {props.children}
+    </Button>
   );
 }

@@ -2,6 +2,8 @@ import { Hero, CustomFilter, SearchBar } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants/constants";
 import CarGrid from "@/components/CarGrid";
 import { Suspense } from "react";
+import Link from "next/link";
+import { FaLink } from "react-icons/fa6";
 
 export default async function Home() {
   return (
@@ -9,8 +11,14 @@ export default async function Home() {
       <Hero />
 
       <div className="padding-x padding-y max-width mt-12" id="discover">
-        <div className="home__text-container">
-          <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
+        <div className="home__text-container" id="catalogue">
+          <Link href={"#car-grid"} className="flex-center group gap-3">
+            <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
+            <FaLink
+              size={24}
+              className="opacity-0 duration-300 group-hover:opacity-100 group-focus:opacity-100"
+            />
+          </Link>
           <p>Explore the cars you might like</p>
         </div>
 

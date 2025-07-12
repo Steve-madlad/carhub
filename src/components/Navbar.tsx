@@ -17,11 +17,9 @@ export default function Navbar() {
           />
         </Link>
 
-        <CustomButton
-          title="Sign in"
-          btnType="button"
-          containerStyles="text-primary-blue rounded-full bg-white min-w-[130px]"
-        />
+        <CustomButton className="min-w-[130px] rounded-full bg-white text-primary-blue hover:bg-primary-blue-500 hover:text-white focus:bg-primary-blue-500 focus:text-white">
+          Sign in
+        </CustomButton>
       </nav>
     </header>
   );
