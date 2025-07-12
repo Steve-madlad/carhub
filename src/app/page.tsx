@@ -22,7 +22,9 @@ export default async function Home() {
         </div>
 
         <div className="home__filters mb-20">
-          <SearchBar />
+          <Suspense>
+            <SearchBar />
+          </Suspense>
 
           <div className="home__filter-container">
             <Suspense>
