@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, ButtonProps } from "./ui/button";
+import { Button, type ButtonProps } from "./ui/button";
 
 export default function CustomButton({
   className,
@@ -10,7 +10,13 @@ export default function CustomButton({
   ...props
 }: ButtonProps) {
   return (
-    <Button asChild={asChild} className={`custom-btn ${className}`} {...props}>
+    <Button
+      variant={variant}
+      size={size}
+      asChild={asChild}
+      className={`custom-btn ${className}`}
+      {...props}
+    >
       {props.children}
     </Button>
   );
