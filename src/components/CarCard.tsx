@@ -18,7 +18,7 @@ export default function CarCard({ car }: { car: Car }) {
 
       <p className="mt-6 flex text-[32px] font-extrabold leading-8">
         <span className="font-semi-bold self-start text-sm">$</span>
-        <p>{(Math.random() * (65 - 34) + 34).toFixed(0)}</p>
+        <span>{(Math.random() * (65 - 34) + 34).toFixed(0)}</span>
         <span className="self-end text-sm font-medium">/day</span>
       </p>
 

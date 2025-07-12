@@ -5,11 +5,13 @@ import type { IconType } from "react-icons/lib";
 export interface AutoCompleteProps {
   placeholder: string;
   autocompletePlaceholder: string;
-  options: string[];
+  options: Record<string, string>[];
   triggerClassName?: string;
   onOptionSelect?: (value: string) => void;
   iconOnSelect?: IconProp;
+  disabled?: boolean;
   defaultIcon?: IconProp;
+  value?: string;
 }
 
 export interface Car {

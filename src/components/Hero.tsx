@@ -18,7 +18,6 @@ export default function Hero() {
         </p>
 
         <CustomButton
-          variant={"link"}
           asChild
           className="mt-10 w-fit rounded-full border-2 border-primary-blue bg-primary-blue text-white hover:bg-white hover:text-primary-blue focus:bg-white focus:text-primary-blue"
         >

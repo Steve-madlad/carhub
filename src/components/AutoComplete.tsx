@@ -27,14 +27,16 @@ export default function AutoComplete({
   onOptionSelect,
   iconOnSelect: IconOnSelect,
   defaultIcon: DefaultIcon,
+  disabled = false,
   options,
+  value: controlledValue,
 }: AutoCompleteProps) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState(controlledValue ?? "");
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
+      <PopoverTrigger asChild disabled={disabled}>
         <Button
           variant="outline"
           role="combobox"
@@ -49,7 +51,9 @@ export default function AutoComplete({
             <Search />
           )}
 
-          {value ? options.find((option) => option === value) : placeholder}
+          {value
+            ? options.find((option) => option.value === value)?.title
+            : placeholder}
         </Button>
       </PopoverTrigger>
       <PopoverContent className={`w-[var(--radix-popover-trigger-width)] p-0`}>
@@ -60,8 +64,8 @@ export default function AutoComplete({
             <CommandGroup>
               {options.map((option) => (
                 <CommandItem
-                  key={option}
-                  value={option}
+                  key={option.label}
+                  value={option.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue);
                     onOptionSelect &&
@@ -71,11 +75,11 @@ export default function AutoComplete({
                     setOpen(false);
                   }}
                 >
-                  {option}
+                  {option.title}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === option ? "opacity-100" : "opacity-0",
+                      value === option.value ? "opacity-100" : "opacity-0",
                     )}
                   />
                 </CommandItem>

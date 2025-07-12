@@ -6,18 +6,29 @@ import { Button } from "./ui/button";
 import { FaSearch } from "react-icons/fa";
 import { SiVolkswagen } from "react-icons/si";
 import { manufacturers } from "@/constants/constants";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SearchBar() {
   const [manufacturer, setManufacturer] = useState("");
+  const searchParams = useSearchParams();
+  const manufacturerParam = searchParams.get("manufacturer");
+
+  const isValidOption = manufacturers.find(
+    (option) => option.value === manufacturerParam,
+  );
+  const selectedValue = isValidOption ? isValidOption.value : "";
+
   const router = useRouter();
 
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (manufacturer) {
-      router.push(`/?manufacturer=${encodeURIComponent(manufacturer)}`, {
-        scroll: false,
-      });
+      const currentParams = new URLSearchParams(window.location.search);
+      currentParams.set("manufacturer", manufacturer);
+
+      const queryString = currentParams.toString();
+
+      router.push(`/?${queryString}`, { scroll: false });
     }
   };
 
@@ -35,12 +46,13 @@ export default function SearchBar() {
           onOptionSelect={handleSelect}
           triggerClassName="w-full sm:rounded-e-none sm:rounded-s-md sm:border-r-0 !bg-transparent shadow-none"
           options={manufacturers}
+          value={selectedValue}
         />
       </div>
 
       <div className="searchbar__item">
         <AutoComplete
-          autocompletePlaceholder="Search manufacturer"
+          autocompletePlaceholder="Search Model"
           placeholder="Select Manufacturer"
           triggerClassName="w-full sm:rounded-s-none sm:rounded-e-md sm:border-s-0 !bg-transparent shadow-none"
           options={manufacturers}

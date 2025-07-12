@@ -2,6 +2,7 @@ import { Footer, Navbar } from "@/components";
 
 import "@/styles/globals.css";
 import { type Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Car Hub",
@@ -18,6 +19,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
