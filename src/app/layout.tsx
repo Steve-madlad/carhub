@@ -6,9 +6,40 @@ import { type Metadata } from "next";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
-  title: "Car Hub",
+  title: {
+    default: "Car Hub",
+    template: "%s | Car Hub",
+  },
   description: "Discover your dream car today!",
-  icons: [{ rel: "icon", url: "/car-svgrepo-com(2).svg" }],
+  keywords: ["car", "car rental", "ssr", "api", "Next.js", "React"],
+  icons: {
+    icon: "/car-svgrepo-com(2).svg",
+    shortcut: "/car-svgrepo-com(2).svg",
+    apple: "/car-svgrepo-com(2).svg",
+  },
+  openGraph: {
+    title: "Car Hub",
+    description: "Discover your dream car today!",
+    url: "https://carhub-deal.vercel.app/",
+    siteName: "Car Hub",
+    images: [
+      {
+        url: "https://my-portfolio-steve.vercel.app/carhub.png",
+        width: 1493,
+        height: 917,
+        alt: "Car Hub Screenshot",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Car Hub",
+    description: "Discover your dream car today!",
+    images: ["/screenshot.png"],
+    creator: "@your_twitter_handle",
+  },
 };
 
 export default function RootLayout({
