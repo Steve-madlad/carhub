@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Car Hub",
     description: "Discover your dream car today!",
-    images: ["/screenshot.png"],
-    creator: "@your_twitter_handle",
+    images: ["/carhub.png"],
+    creator: "@Theblackguy_1",
   },
 };
 
