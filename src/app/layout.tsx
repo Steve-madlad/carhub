@@ -6,6 +6,7 @@ import { type Metadata } from "next";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://carhub-deal.vercel.app/"),
   title: {
     default: "Car Hub",
     template: "%s | Car Hub",
