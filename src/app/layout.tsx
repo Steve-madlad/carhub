@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "Car Hub",
     images: [
       {
-        url: "https://my-portfolio-steve.vercel.app/carhub.png",
+        url: "/carhub.png",
         width: 1493,
         height: 917,
         alt: "Car Hub Screenshot",
