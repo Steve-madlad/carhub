@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Check, Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -19,6 +18,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import type { AutoCompleteProps } from "@/types/types";
+import { useEffect, useState } from "react";
 
 export default function AutoComplete({
   placeholder,
@@ -31,8 +31,12 @@ export default function AutoComplete({
   options,
   value: controlledValue,
 }: AutoCompleteProps) {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState(controlledValue ?? "");
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(controlledValue ?? "");
+
+  useEffect(() => {
+    setValue(controlledValue ?? "");
+  }, [controlledValue]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -62,10 +66,10 @@ export default function AutoComplete({
           <CommandList>
             <CommandEmpty>No option found.</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => (
+              {options.map((option, index) => (
                 <CommandItem
-                  key={option.label}
-                  value={option.value}
+                  key={index}
+                  value={option.value as string}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue);
                     onOptionSelect &&

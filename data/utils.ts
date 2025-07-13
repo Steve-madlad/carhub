@@ -68,8 +68,11 @@ export const deleteSearchParams = (type: string) => {
 };
 
 export const getCarImage = (car: CarKey) => {
-  const formatted = car.toLowerCase().replace(" ", "") as CarKey;
+  const formatted = car.toLowerCase().replace(/[\s-]/g, "") as CarKey;
   const image = cars[formatted];
+  console.log("car", car);
+  console.log("car", formatted);
+  console.log("car", image);
 
   return image;
 };

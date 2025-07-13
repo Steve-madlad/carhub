@@ -1,4 +1,5 @@
 import { Footer, Navbar } from "@/components";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 import "@/styles/globals.css";
 import { type Metadata } from "next";
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="realtive">
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster />
+        <TooltipProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <Toaster />
+        </TooltipProvider>
       </body>
     </html>
   );

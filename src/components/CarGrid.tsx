@@ -27,6 +27,7 @@ export default function CarGrid() {
       } catch (error) {
         setIsLoading(false);
         toast.error("Error fetching Cars.");
+        setCars(undefined);
       }
     };
 
@@ -34,7 +35,7 @@ export default function CarGrid() {
   }, [manufacturer, year, fuelType, model]);
 
   return (
-    <section id="car-grid">
+    <section id="car-grid" className="min-h-[30vh]">
       <div
         className={`home__cars-wrapper ${!isLoading && !cars?.length && "!flex"}`}
       >

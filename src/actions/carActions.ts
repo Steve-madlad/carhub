@@ -30,6 +30,8 @@ export async function getCarDetails(
 
     const data = (await response.json()) as Car[];
 
+    console.log("response", data);
+
     return data;
   } catch (error) {
     console.error("Failed to fetch car details:", error);

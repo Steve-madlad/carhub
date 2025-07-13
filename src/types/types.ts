@@ -5,7 +5,7 @@ import type { IconType } from "react-icons/lib";
 export interface AutoCompleteProps {
   placeholder: string;
   autocompletePlaceholder: string;
-  options: Record<string, string>[];
+  options: Record<string, string | string[]>[];
   triggerClassName?: string;
   onOptionSelect?: (value: string) => void;
   iconOnSelect?: IconProp;

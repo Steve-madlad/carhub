@@ -4,6 +4,7 @@ import CarGrid from "@/components/CarGrid";
 import { Suspense } from "react";
 import Link from "next/link";
 import { FaLink } from "react-icons/fa6";
+
 export default async function Home() {
   return (
     <main className="overflow-hidden">

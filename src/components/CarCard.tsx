@@ -1,9 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { getCarImage } from "data/utils";
 import Image from "next/image";
-import { TbSteeringWheel } from "react-icons/tb";
 import { CardModal } from "./";
 import type { Car, CarKey } from "@/types/types";
+import { TbSteeringWheel } from "react-icons/tb";
+import { PiInfoBold } from "react-icons/pi";
+import ToolTip from "./ToolTip";
 
 export default function CarCard({ car }: { car: Car }) {
   const { make, model, transmission, fuel_type, drive } = car;
@@ -14,6 +16,12 @@ export default function CarCard({ car }: { car: Car }) {
         <h2 className="car-card__content-title">
           {make} {model}
         </h2>
+
+        <ToolTip tooltip="Images will be innacurate at times due to api limitations">
+          <span className="w-fit rounded-full duration-300 hover:scale-125 hover:text-primary-blue hover:shadow-md">
+            <PiInfoBold size={25} />
+          </span>
+        </ToolTip>
       </div>
 
       <p className="mt-6 flex text-[32px] font-extrabold leading-8">
