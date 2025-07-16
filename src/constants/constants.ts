@@ -275,7 +275,7 @@ export const cars = {
   lincoln: "/cars/lincoln.png",
   maserati: "/cars/maserati.png",
   mazda: "/cars/mazda.png",
-  mclaren: "/cars/mclaren.png",
+  mclarenautomotive: "/cars/mclaren.png",
   mercedesbenz: "/cars/mercedes.png",
   mini: "/cars/mini.png",
   mitsubishi: "/cars/mitsubishi.png",
